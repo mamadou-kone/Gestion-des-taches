@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function(){
         const dateEcheanceContent = dateEcheance.value.trim(); // Date d'échéance de la tâche
 
         // Vérification si le champ de texte n'est pas vide
-        if(addText !== ""){
+        if(addText !== "" ){
+            if( dateEcheance!=""){
             // Création d'un élément de liste pour la nouvelle tâche
             const listLi = document.createElement("li");
             listLi.classList.add("task"); // Ajout de la classe CSS "task"
@@ -38,6 +39,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
             // Effacement du champ de saisie de la tâche après l'ajout
             taskInput.value = "";
+        }else{
+            alert("Champ vide")
+        }
+    }else{
+            alert("Champ vide")
         }
     });
 
