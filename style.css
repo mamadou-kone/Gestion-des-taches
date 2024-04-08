@@ -146,14 +146,39 @@ body {
     animation: appear 0.5s ease forwards;
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
+/* Media query pour les appareils de petite taille (par exemple, smartphones) */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 10px; /* Réduire l'espacement autour du corps pour les petits écrans */
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    #app {
+        width: 90%; /* Réduire la largeur de l'application pour les petits écrans */
+    }
+    #zone {
+        
+        flex-direction: column; /* Afficher les éléments de zone en colonne pour les petits écrans */
+        padding:0 5%;
+        margin-left: 0; /* Ajuster les marges */
+        margin-right: 0;
+        width: 100%;
+        height: 100%;
+    }
+    h1{
+        font-size: 150%;
     }
 }
 
+/* Media query pour les appareils de taille moyenne (par exemple, tablettes) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    #taskList li {
+        margin-left: 20px; /* Ajuster les marges des éléments de liste pour les écrans de taille moyenne */
+        margin-right: 20px;
+    }
+}
+
+/* Media query pour les appareils de grande taille (par exemple, ordinateurs de bureau) */
+@media only screen and (min-width: 1025px) {
+    #entete {
+        padding-bottom: 20px; /* Ajuster l'espacement de l'en-tête pour les grands écrans */
+    }
+}
