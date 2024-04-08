@@ -8,7 +8,7 @@ $(document).ready(function() {
             const listItem = $('<li class="task"></li>');
             listItem.html(`
                 <input type="checkbox" class="taskCheckbox">
-                <span>${taskText}</span>
+                <span class="txt">${taskText}</span>
                 <span>${priority}</span>
                 <span>${dateEcheance}</span>
                 <button class="deleteBtn">Supprimer</button>
@@ -94,4 +94,51 @@ $(document).ready(function() {
             colorIndex = 0;
         }
     }, 2000); // Intervalle entre chaque changement de couleur en millisecondes
+});
+
+
+$(document).ready(function() {
+    // Gestion de l'événement keypress pour l'élément d'entrée de texte
+    $('#taskInput').keypress(function(event) {
+        // Vérification si la touche pressée est la touche Entrée (code 13)
+        if (event.which === 13) {
+            // Appel de la fonction pour ajouter une tâche
+            addTask();
+        }
+    });
+    
+    $('#dateEcheance').keypress(function(event) {
+        // Vérification si la touche pressée est la touche Entrée (code 13)
+        if (event.which === 13) {
+            // Appel de la fonction pour ajouter une tâche
+            addTask();
+        }
+    });
+
+    // Le reste de votre code existant ...
+
+    // Fonction pour ajouter une tâche
+    function addTask() {
+        const taskText = $('#taskInput').val().trim();
+        const priority = $('#priority').val().trim();
+        const dateEcheance = $('#dateEcheance').val().trim();
+
+        if (taskText !== "" && dateEcheance !== "") {
+            const listItem = $('<li class="task"></li>');
+            listItem.html(`
+                <input type="checkbox" class="taskCheckbox">
+                <span class="txt">${taskText}</span>
+                <span>${priority}</span>
+                <span>${dateEcheance}</span>
+                <button class="deleteBtn">Supprimer</button>
+            `);
+            $('#taskList').append(listItem);
+            saveTasks();
+            $('#taskInput').val('');
+        } else {
+            alert("Champ vide");
+        }
+    }
+
+    // Le reste de votre code existant ...
 });
