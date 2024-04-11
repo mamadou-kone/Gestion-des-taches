@@ -41,7 +41,7 @@ function loadTasks() {
         }
         listItem.html(`
             <input type="checkbox" class="taskCheckbox" ${task.completed ? 'checked' : ''}>
-            <span>${task.text}</span>
+            <span class="txt">${task.text}</span>
             <span>${task.priority}</span>
             <span>${task.date}</span>
             <button class="deleteBtn">Supprimer</button>
@@ -115,8 +115,6 @@ $(document).ready(function() {
         }
     });
 
-    // Le reste de votre code existant ...
-
     // Fonction pour ajouter une tâche
     function addTask() {
         const taskText = $('#taskInput').val().trim();
@@ -139,6 +137,4 @@ $(document).ready(function() {
             alert("Champ vide");
         }
     }
-
-    // Le reste de votre code existant ...
 });
